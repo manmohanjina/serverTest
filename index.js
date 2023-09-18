@@ -5,7 +5,11 @@ const { ApiGetFun } = require("./apiCalling");
 app.use(cors());
 app.use(express.json());
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  res.send("welcome");
+});
+
+app.post("/putapi", async (req, res) => {
   const api = req.body.url;
   console.log(api);
   try {
@@ -17,6 +21,6 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.listen( process.env.PORT||8080, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log("running");
 });
